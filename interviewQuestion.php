@@ -107,3 +107,31 @@ function wordCount($string) {
 $string = "This is a test string.";
 echo "Word count: " . wordCount($string);
 ?>
+
+//QUestion Find 3rd max salary from a comma separated string using any programming language without using inbuilt function 
+//"30000,27000,40000,9000,9000,14000,30000,12000,8000,27000,40000,12000,8000,1000,30000,30000,9000,27000"
+
+<?php
+
+$salariesStr = "30000,27000,40000,9000,9000,14000,30000,12000,8000,27000,40000,12000,8000,1000,30000,30000,9000,27000";
+
+// Step 1: Convert to array
+$salaries = explode(",", $salariesStr);
+
+// Step 2: Convert to integers and remove duplicates
+$salaries = array_unique(array_map('intval', $salaries));
+
+// Step 3: Sort in descending order
+rsort($salaries);
+
+// Step 4: Get 3rd max if exists
+if (count($salaries) >= 3) {
+    echo "3rd maximum salary: " . $salaries[2];
+} else {
+    echo "Not enough distinct salaries.";
+}
+
+?>
+
+
+
